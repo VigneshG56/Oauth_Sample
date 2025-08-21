@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini OAuth Demo (DATEV-style)</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 24px; background: #0a1f44; color: #e8eef7; }
+      .card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+              border-radius: 16px; padding: 16px 20px; margin-bottom: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+      button { padding: 10px 14px; border: 0; border-radius: 12px; cursor: pointer; }
+      .row { display: flex; gap: 10px; flex-wrap: wrap; }
+      code, pre { background: rgba(0,0,0,0.35); padding: 8px 10px; border-radius: 10px; color: #d7f7ff; }
+      .muted { color: #c0c9d6; }
+    </style>
+  </head>
+  <body>
+    <h1>Mini OAuth Demo (DATEV-style)</h1>
+    <p class="muted">Simulates: <b>Authenticate</b> → <b>Check/Refresh Token</b> → <b>Send Invoice</b></p>
+
+    <div class="card">
+      <h2>1) Authenticate</h2>
+      <p>Gets access token (15m) + refresh token (11h).</p>
+      <div class="row">
+        <button id="btnAuth">Authenticate</button>
+        <button id="btnCheck">Check Token</button>
+        <button id="btnRevoke">Revoke</button>
+      </div>
+      <pre id="authOut">Tokens: (none)</pre>
+    </div>
+
+    <div class="card">
+      <h2>2) Send Invoice</h2>
+      <p>Auto-refresh happens if access token expired; else asks you to re-auth.</p>
+      <div class="row">
+        <button id="btnSend">Send Demo Invoice</button>
+      </div>
+      <pre id="sendOut">Response: (none)</pre>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
